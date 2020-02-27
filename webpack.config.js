@@ -23,6 +23,8 @@ module.exports = (env, options) => {
         // 컴파일 이후 결과물 html 파일을 생성
         title: 'webpack-react-start-kit',
         template: './public/index.html', // 참고할 html 파일
+        filename: './index.html',
+        favicon: './public/favicon.ico',
       }),
       new MiniCssExtractPlugin({
         // css 분리

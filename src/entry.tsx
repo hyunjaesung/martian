@@ -5,6 +5,6 @@ import { hot } from 'react-hot-loader';
 // import store from './store';
 import App from './App';
 
-const Hot: any = hot(module)(App); // HOC
+const Hot = hot(module)(App); // HOC
 
 ReactDOM.render(<Hot />, document.querySelector('#root'));
