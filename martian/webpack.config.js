@@ -56,11 +56,27 @@ module.exports = (env, options) => {
           test: /\.(png|jpg|svg|gif)/,
           use: ['file-loader'],
         },
+        {
+          test: /\.css$/,
+          include: path.join(__dirname, 'src/components'),
+          use: [
+            'style-loader',
+            {
+              loader: 'typings-for-css-modules-loader',
+              options: {
+                modules: true,
+                namedExport: true,
+                // exportOnlyLocals: true,
+              },
+            },
+          ],
+        },
       ],
     },
     optimization: {},
     resolve: {
-      extensions: ['.jsx', '.js', '.tsx', '.ts'],
+      modules: ['node_modules'],
+      extensions: ['.jsx', '.js', '.tsx', '.ts', '.css'],
       alias: { 'react-dom': '@hot-loader/react-dom' },
     },
     devtool: 'eval',
