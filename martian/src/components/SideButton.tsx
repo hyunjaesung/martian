@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 import './SideButton.scss';
 
 const SideButton = () => {
@@ -24,7 +26,9 @@ const SideButton = () => {
           setIsOpen((prev) => !prev);
         }}
       >
-        Menu
+        <span>
+          <FontAwesomeIcon icon={faSatellite} size="3x" />
+        </span>
       </a>
     </nav>
   );

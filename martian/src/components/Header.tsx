@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { FC } from 'react';
-import SideButton from './SideButtonComponent';
+import SideButton from './SideButton';
 
 const Container = styled.div`
-  width: auto;
+  width: 100vw;
   height: 140px;
   display: flex;
   justify-content: space-between;

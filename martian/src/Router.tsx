@@ -4,10 +4,18 @@ import Home from './routes/Home';
 import Journey from './routes/Journey';
 import Search from './routes/Search';
 import Header from './components/Header';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  position: relative;
+  width: auto;
+  height: 100vh;
+  max-width: 1400px;
+`;
 
 const Router = () => (
   <BrowserRouter>
-    <>
+    <Container>
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -15,7 +23,7 @@ const Router = () => (
         <Route path="/search/:keyword" exact component={Search} />
         <Redirect from="*" to="/" />
       </Switch>
-    </>
+    </Container>
   </BrowserRouter>
 );
 
