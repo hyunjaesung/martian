@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const bounceUp = keyframes`
     0%{ transform: translate3d(0, 3%, 0);}
@@ -51,13 +52,36 @@ const SearchBar = styled.input`
   height: 60px;
   text-align: center;
   font-size: 2rem;
-  border-bottom: 3px solid rgba(256, 256, 256, 0.6);
   color: white;
   opacity: 0.9;
   font-family: 'Do Hyeon';
   padding-bottom: 5px;
-  &:focus {
-    border-bottom: 3px solid #ee680f;
+  background-color: transparent;
+  background-image: linear-gradient(to right, white 0, #ff7101 70%);
+  background-repeat: no-repeat;
+  background-position: 0 calc(100% + 3px), 0 0;
+  background-size: 100% 3px;
+  box-shadow: none;
+  border: 0;
+  border-bottom: 3px solid rgba(256, 256, 256, 0.6);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  outline: 0 none;
+  transition: border-color 0.2s linear;
+  &:focus,
+  &:hover {
+    border-color: transparent;
+  }
+`;
+
+const JourneyLink = styled.div`
+  margin-top: 20px;
+  font-family: 'Do Hyeon';
+  color: white;
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
+  &:hover {
+    opacity: 0.9;
   }
 `;
 
@@ -69,6 +93,9 @@ const Home: FC = () => {
         <SubTitle>Reading Project</SubTitle>
       </TitleContainer>
       <SearchBar />
+      <Link to="/journey">
+        <JourneyLink>Start Your Journey</JourneyLink>
+      </Link>
     </HomeContainer>
   );
 };

@@ -7,30 +7,32 @@ import './SideButton.scss';
 const SideButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className={`top-right ${isOpen ? 'open' : ''}`}>
-      <a className="disc l1">
-        <div>Messages</div>
-      </a>
-      <a className="disc l2">
-        <div>Photos</div>
-      </a>
-      <a className="disc l3">
-        <div>Profile</div>
-      </a>
-      <a className="disc l4">
-        <div>Likes</div>
-      </a>
-      <a
-        className="disc l5 toggle"
-        onClick={() => {
-          setIsOpen((prev) => !prev);
-        }}
-      >
-        <span>
-          <FontAwesomeIcon icon={faSatellite} size="3x" />
-        </span>
-      </a>
-    </nav>
+    <>
+      <nav className={`top-right ${isOpen ? 'open' : ''}`}>
+        {/* <a className="disc l1">
+        <div>Group</div>
+      </a> */}
+        <a className="disc l1">
+          <div>Journey</div>
+        </a>
+        <a className="disc l2">
+          <div>MyPage</div>
+        </a>
+        <a className="disc l3">
+          <div>Home</div>
+        </a>
+        <a
+          className="disc l4 toggle"
+          onClick={() => {
+            setIsOpen((prev) => !prev);
+          }}
+        >
+          <span>
+            <FontAwesomeIcon icon={faSatellite} size="3x" />
+          </span>
+        </a>
+      </nav>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = (env, options) => {
@@ -13,12 +14,13 @@ module.exports = (env, options) => {
     output: {
       // 컴파일 생산물
       filename: '[name].bundle.js',
-      path: path.join(__dirname, 'build/dist'),
-      // publicPath: 'public/dist',
+      path: path.join(__dirname, '/dist'),
+      publicPath: '/',
     },
     plugins: [
+      new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
       new webpack.HotModuleReplacementPlugin(),
-      new CleanWebpackPlugin(),
+      // new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         // 컴파일 이후 결과물 html 파일을 생성
         title: 'webpack-react-start-kit',
@@ -54,23 +56,15 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(png|jpg|svg|gif)/,
-          use: ['file-loader'],
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                publicPath: '/',
+              },
+            },
+          ],
         },
-        // {
-        //   test: /\.css$/,
-        //   include: path.join(__dirname, 'src/components'),
-        //   use: [
-        //     'style-loader',
-        //     {
-        //       loader: 'typings-for-css-modules-loader',
-        //       options: {
-        //         modules: true,
-        //         namedExport: true,
-        //         // exportOnlyLocals: true,
-        //       },
-        //     },
-        //   ],
-        // },
       ],
     },
     optimization: {},
@@ -81,7 +75,7 @@ module.exports = (env, options) => {
     },
     devtool: 'eval',
     devServer: {
-      contentBase: './build',
+      contentBase: path.join(__dirname, '/public'),
       noInfo: true,
       open: true,
       port: 9000,

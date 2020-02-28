@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
-  width: auto;
+  width: 100%;
   height: 100vh;
   max-width: 1400px;
 `;

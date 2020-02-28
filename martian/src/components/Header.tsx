@@ -4,7 +4,7 @@ import { FC } from 'react';
 import SideButton from './SideButton';
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 140px;
   display: flex;
   justify-content: space-between;
