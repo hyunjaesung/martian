@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as MarsImage from '../../public/mars.png';
 
 const Container = styled.section`
@@ -10,7 +10,7 @@ const Container = styled.section`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);
+  backdrop-filter: url(filters.svg#filter) blur(10px) saturate(150%);
   /* filter: blur(10px); */
   /* opacity: 0.3; */
   z-index: 1;
@@ -18,22 +18,44 @@ const Container = styled.section`
 `;
 const Content = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 400px;
   height: 700px;
-  margin: 30px;
+  margin: 0px;
   padding: 30px;
   border-radius: 7px;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 `;
-const LogoImg = styled.img`
+interface ITest {
+  background: string;
+}
+
+const Rotate = keyframes`
+    0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}`;
+
+const LogoImg = styled.div`
   position: relative;
+  width: 130px;
+  height: 130px;
+  z-index: 30;
+  background-image: url(${(props: ITest) => props.background});
+  background-size: contain;
+  animation: ${Rotate} 180s linear infinite;
 `;
 
 const Modal = () => (
   <Container>
-    <LogoImg src={MarsImage} />
-    <Content></Content>
+    <Content>
+      <LogoImg background={MarsImage.default} />
+    </Content>
   </Container>
 );
 

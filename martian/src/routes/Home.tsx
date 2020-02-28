@@ -3,11 +3,12 @@ import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const bounceUp = keyframes`
+export const bounceUp = keyframes`
     0%{ transform: translate3d(0, 3%, 0);}
     50%{ transform: translate3d(0, -3%, 0);}
     100%{ transform: translate3d(0, 3%, 0);}
   }`;
+
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;

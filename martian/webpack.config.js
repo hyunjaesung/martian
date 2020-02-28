@@ -15,12 +15,12 @@ module.exports = (env, options) => {
       // 컴파일 생산물
       filename: '[name].bundle.js',
       path: path.join(__dirname, '/dist'),
-      publicPath: '/',
+      publicPath: '/', // 빌드완료후 스태틱파일 위치
     },
     plugins: [
       new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
       new webpack.HotModuleReplacementPlugin(),
-      // new CleanWebpackPlugin(),
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         // 컴파일 이후 결과물 html 파일을 생성
         title: 'webpack-react-start-kit',
