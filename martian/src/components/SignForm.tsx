@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faKey, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const FormContainer = styled.form`
   display: flex;
@@ -89,6 +89,20 @@ const SignUpButton = styled.button`
   }
 `;
 
+const EmailCheck = styled.button`
+  position: absolute;
+  font-size: 1.3rem;
+  top: 45%;
+  right: 0%;
+  color: white;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.1s linear;
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
 const SignForm = () => {
   return true ? (
     <FormContainer>
@@ -113,7 +127,28 @@ const SignForm = () => {
       <SignUpButton>Sign Up</SignUpButton>
     </FormContainer>
   ) : (
-    <div></div>
+    <FormContainer>
+      <FormTitle>Sign Up</FormTitle>
+      <InputContainer>
+        <Input placeholder="Email" type="email" required />
+        <EmailCheck>
+          <FontAwesomeIcon icon={faSearch} size="1x" />
+        </EmailCheck>
+      </InputContainer>
+      <InputContainer>
+        <Input placeholder="Password" type="password" required />
+        <InputName>
+          <FontAwesomeIcon icon={faKey} size="1x" />
+        </InputName>
+      </InputContainer>
+      <InputContainer>
+        <Input placeholder="Password Check" type="password" required />
+        <InputName>
+          <FontAwesomeIcon icon={faKey} size="1x" />
+        </InputName>
+      </InputContainer>
+      <SubmitButton>Sign Up</SubmitButton>
+    </FormContainer>
   );
 };
 
