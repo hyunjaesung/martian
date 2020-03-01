@@ -53,26 +53,6 @@ const SearchBar = styled.input`
   height: 60px;
   text-align: center;
   font-size: 2rem;
-  color: white;
-  opacity: 0.9;
-  font-family: 'Do Hyeon';
-  padding-bottom: 5px;
-  background-color: transparent;
-  background-image: linear-gradient(to right, white 0, #ff7101 70%);
-  background-repeat: no-repeat;
-  background-position: 0 calc(100% + 3px), 0 0;
-  background-size: 100% 3px;
-  box-shadow: none;
-  border: 0;
-  border-bottom: 3px solid rgba(256, 256, 256, 0.6);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-  outline: 0 none;
-  transition: border-color 0.2s linear;
-  &:focus,
-  &:hover {
-    border-color: transparent;
-  }
 `;
 
 const JourneyLink = styled.div`

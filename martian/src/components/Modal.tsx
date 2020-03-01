@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 import * as MarsImage from '../../public/mars.png';
+import SignForm from './SignForm';
 
 const Container = styled.section`
   position: absolute;
@@ -19,7 +20,8 @@ const Container = styled.section`
 const Content = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 400px;
   height: 700px;
   margin: 0px;
@@ -43,6 +45,7 @@ const Rotate = keyframes`
 
 const LogoImg = styled.div`
   position: relative;
+  margin-top: 20px;
   width: 130px;
   height: 130px;
   z-index: 30;
@@ -55,6 +58,7 @@ const Modal = () => (
   <Container>
     <Content>
       <LogoImg background={MarsImage.default} />
+      <SignForm />
     </Content>
   </Container>
 );
