@@ -5,7 +5,6 @@ import Router from './Router';
 import Modal from './components/Modal';
 
 const GlobalStyles = createGlobalStyle`
-      @import url('https://fonts.googleapis.com/css?family=Anton|Fjalla+One|Righteous&display=swap');
       body {
         display: flex;
         justify-content: center;
@@ -49,20 +48,22 @@ const GlobalStyles = createGlobalStyle`
       a:hover,a:focus{color:#333;}
       a:link,a:active,a:visited{color:#7d7d7d; text-decoration:none; border:0px;}
     `;
+
 const RootContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 100%;
 `;
+
 const App: FC = () => {
-  return (
-    <RootContainer>
-      <Modal />
-      <Router />
-      <GlobalStyles />
-    </RootContainer>
-  );
+	return (
+		<RootContainer>
+			{/* <Modal /> */}
+			<Router />
+			<GlobalStyles />
+		</RootContainer>
+	);
 };
 
 export default App;
