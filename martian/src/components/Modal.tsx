@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
-import * as MarsImage from '../../public/mars.png';
+import * as PlanetImage from '../../public/purplePlanet.png';
 import SignForm from './SignForm';
 
 const Container = styled.section`
@@ -44,10 +44,10 @@ const Rotate = keyframes`
 }`;
 
 const LogoImg = styled.div`
-  position: relative;
+  position: absolute;
   margin-top: 20px;
-  width: 130px;
-  height: 130px;
+  width: 250px;
+  height: 250px;
   z-index: 30;
   background-image: url(${(props: ITest) => props.background});
   background-size: contain;
@@ -57,7 +57,7 @@ const LogoImg = styled.div`
 const Modal = () => (
   <Container>
     <Content>
-      <LogoImg background={MarsImage.default} />
+      <LogoImg background={PlanetImage.default} />
       <SignForm />
     </Content>
   </Container>

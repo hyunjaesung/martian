@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
         width: 100vw;
         margin:0;
         /* background: rgb(220,136,38); */
-        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(220,123,38,1) 25%, rgba(255,85,0,1) 87%);
+        background: linear-gradient(180deg, rgba(73,63,80,1) 26%, rgba(143,29,253,1) 62%, rgba(147,35,246,1) 63%, rgba(252,176,69,1) 88%);
         }
         button {border:0 none; background-color:transparent; cursor:pointer;}
         border-top: none;
@@ -50,20 +50,20 @@ const GlobalStyles = createGlobalStyle`
     `;
 
 const RootContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	width: 100vw;
-	height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
 `;
 
 const App: FC = () => {
-	return (
-		<RootContainer>
-			{/* <Modal /> */}
-			<Router />
-			<GlobalStyles />
-		</RootContainer>
-	);
+  return (
+    <RootContainer>
+      {/* <Modal /> */}
+      <Router />
+      <GlobalStyles />
+    </RootContainer>
+  );
 };
 
 export default App;
