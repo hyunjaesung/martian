@@ -2,7 +2,8 @@
   "compilerOptions": {
     "strict": true, // 애를 해야 다 체크해줌
     "lib": ["es5", "es2015", "es2016", "es2017", "es2010", "dom"],
-    "jsx": "react"
+    "jsx": "react",
+    "types": ["react", "node"]
   },
   "exclude": ["typings/browser.d.ts", "typings/browser", "node_modules"],
   "skipLibCheck": true

@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = (env, options) => {
@@ -13,10 +14,11 @@ module.exports = (env, options) => {
     output: {
       // 컴파일 생산물
       filename: '[name].bundle.js',
-      path: path.join(__dirname, 'build/dist'),
-      // publicPath: 'public/dist',
+      path: path.join(__dirname, '/dist'),
+      publicPath: '/', // 빌드완료후 스태틱파일 위치
     },
     plugins: [
+      new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
       new webpack.HotModuleReplacementPlugin(),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
@@ -54,18 +56,26 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(png|jpg|svg|gif)/,
-          use: ['file-loader'],
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                publicPath: '/',
+              },
+            },
+          ],
         },
       ],
     },
     optimization: {},
     resolve: {
-      extensions: ['.jsx', '.js', '.tsx', '.ts'],
+      modules: ['node_modules'],
+      extensions: ['.jsx', '.js', '.tsx', '.ts', '.css'],
       alias: { 'react-dom': '@hot-loader/react-dom' },
     },
     devtool: 'eval',
     devServer: {
-      contentBase: './build',
+      contentBase: path.join(__dirname, '/public'),
       noInfo: true,
       open: true,
       port: 9000,
